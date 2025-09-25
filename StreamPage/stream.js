@@ -39,6 +39,7 @@ if (!matchId) {
     .then(data => {
       let foundMatch = null;
 
+      // Find the match by ID
       for (const date in data.events) {
         data.events[date].forEach((event, idx) => {
           const id = `${event.unix_timestamp}_${idx}`;
@@ -75,27 +76,31 @@ if (!matchId) {
       updateStatus();
       setInterval(updateStatus, 1000);
 
- // Render channels
-channelsListEl.innerHTML = "";
-if (foundMatch.channels && Array.isArray(foundMatch.channels) && foundMatch.channels.length > 0) {
-  foundMatch.channels.forEach((url, i) => {
-    const btn = document.createElement("button");
-    btn.className = "channel-btn";
-    btn.textContent = `Channel ${i + 1}`;
-    btn.addEventListener("click", () => {
-      Array.from(channelsListEl.children).forEach(el => el.classList.remove("active"));
-      btn.classList.add("active");
-      playerFrame.src = url;
-      streamStatus.textContent = `Loaded channel ${i + 1}`;
-    });
-    channelsListEl.appendChild(btn);
-  });
+      // Render channels
+      channelsListEl.innerHTML = "";
+      if (foundMatch.channels && Array.isArray(foundMatch.channels) && foundMatch.channels.length > 0) {
+        foundMatch.channels.forEach((url, i) => {
+          const btn = document.createElement("button");
+          btn.className = "channel-btn";
+          btn.textContent = `Channel ${i + 1}`;
+          btn.addEventListener("click", () => {
+            Array.from(channelsListEl.children).forEach(el => el.classList.remove("active"));
+            btn.classList.add("active");
+            playerFrame.src = url;
+            streamStatus.textContent = `Loaded channel ${i + 1}`;
+          });
+          channelsListEl.appendChild(btn);
+        });
 
-  // Auto-load first channel
-  channelsListEl.firstChild.click();
-} else {
-  streamStatus.textContent = "⚠ No streaming channels available.";
-}
+        // Optional improvement: set first channel as active immediately
+        const firstBtn = channelsListEl.firstChild;
+        firstBtn.classList.add("active");
+        playerFrame.src = foundMatch.channels[0];
+        streamStatus.textContent = `Loaded channel 1`;
+
+      } else {
+        streamStatus.textContent = "⚠ No streaming channels available.";
+      }
 
     })
     .catch(err => {
@@ -103,4 +108,3 @@ if (foundMatch.channels && Array.isArray(foundMatch.channels) && foundMatch.chan
       streamStatus.textContent = "⚠ Error loading match.";
     });
 }
-
