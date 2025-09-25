@@ -1,10 +1,21 @@
+:root{
+  --bg:#0f1724;
+  --card:#0b1220;
+  --muted:#9aa4b2;
+  --accent:#0ea5a4;
+  --white:#eef2ff;
+  --glass: rgba(255,255,255,0.03);
+}
+
 /* Base */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+   font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:linear-gradient(180deg,#071024 0%, #081827 100%);
+  color:var(--white);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
   line-height: 1.5;
-  background: #111;
-  color: #fff;
 }
 
 body a {
@@ -17,13 +28,13 @@ color: #ff4747;
 .site-title-section {
   text-align: center;
   padding: 12px 10px;
-  background: #111;
+  background: transparent;
   box-shadow: 0 4px 6px rgba(0,0,0,0.5);
-  border-bottom: 1px solid #ff5e00;
+  
 }
 
 .site-title-section h1 {
-  font-size: 20px;
+  font-size: 1.4rem;
   font-weight: 700;
   margin: 0;
   color: #fff;
@@ -33,16 +44,16 @@ color: #ff4747;
 
 /* ====== HEADER MENUS ====== */
 header {
-  background: #111;
+  background: transparent;
   padding: 8px 20px;
   display: flex;
   justify-content: center;
-  border-bottom: 1px solid #ff5e00;
+  
 }
 
 /* Default header */
 .main-header {
-  background: #111;
+  background: transparent;
   padding: 10px 20px;
   display: flex;
   justify-content: center;
@@ -55,8 +66,8 @@ header {
   top: 0;
   width: 100%;
   z-index: 1000;
-  background: #111;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  background: #071024;
+ box-shadow: 0 4px 6px rgba(0,0,0,0.5);
 }
 
 /* Base Nav Menu */
@@ -81,7 +92,7 @@ header {
 
 /* Links */
 .nav-menu li a {
-  color: #ddd;
+  color: #0ea5a4;
   text-decoration: none;
   font-weight: 500;
   padding: 6px 12px;
@@ -110,7 +121,7 @@ header {
 /* More Button */
 .more-btn a {
   font-weight: 700;
-  color: #fff;
+  color: #fff! important;
   background: #ff6600;
   padding: 6px 14px;
   border-radius: 6px;
@@ -139,7 +150,7 @@ header {
 
 /* ====== FOOTER ====== */
 footer {
-  background: #222;
+  background: #0b1220;
   color: #fff;
   text-align: center;
   padding: 1rem;
@@ -179,7 +190,7 @@ footer p {
   }
 
   .site-title-section h1 {
-    font-size: 16px;
+    font-size: 1.2rem;
   }
 
   header {
@@ -223,35 +234,39 @@ footer p {
 table {
   width: 100%;
   border-collapse: collapse;
-  background: #111;
+  background:  transparent;
   margin-top: 10px;
   box-shadow: 0 6px 15px rgba(0,0,0,0.1);
   table-layout: fixed;
   overflow: hidden;
 }
+tr {
+	border-color: inherit;
+	
+}
 
 th {
-  background: #000;
+  background: #ff5e00;
   color: #fff;
   font-weight: 600;
   padding: 12px;
   font-size: 0.95rem;
   word-wrap: break-word;
   text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
 td {
   padding: 12px;
   text-align: center;
-  border-bottom: 1px solid #111;
+  border-bottom: 1.3px dashed rgba(255, 255, 255, 0.03);
   font-size: 0.9rem;
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
 
-tbody tr:nth-child(even) {
-  background: #1e1e1e;
-}
+
 
 tbody tr:hover {
   background: #040404;
