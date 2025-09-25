@@ -75,29 +75,32 @@ if (!matchId) {
       updateStatus();
       setInterval(updateStatus, 1000);
 
-      // Render channels (⚠ depends on your API structure)
-      channelsListEl.innerHTML = "";
-      if (foundMatch.links && Array.isArray(foundMatch.links)) {
-        foundMatch.links.forEach((url, i) => {
-          const btn = document.createElement("button");
-          btn.className = "channel-btn";
-          btn.textContent = `Channel ${i + 1}`;
-          btn.addEventListener("click", () => {
-            Array.from(channelsListEl.children).forEach(el => el.classList.remove("active"));
-            btn.classList.add("active");
-            playerFrame.src = url;
-            streamStatus.textContent = `Loaded channel ${i + 1}`;
-          });
-          channelsListEl.appendChild(btn);
-        });
+ // Render channels
+channelsListEl.innerHTML = "";
+if (foundMatch.channels && Array.isArray(foundMatch.channels) && foundMatch.channels.length > 0) {
+  foundMatch.channels.forEach((url, i) => {
+    const btn = document.createElement("button");
+    btn.className = "channel-btn";
+    btn.textContent = `Channel ${i + 1}`;
+    btn.addEventListener("click", () => {
+      Array.from(channelsListEl.children).forEach(el => el.classList.remove("active"));
+      btn.classList.add("active");
+      playerFrame.src = url;
+      streamStatus.textContent = `Loaded channel ${i + 1}`;
+    });
+    channelsListEl.appendChild(btn);
+  });
 
-        if (channelsListEl.firstChild) channelsListEl.firstChild.click();
-      } else {
-        streamStatus.textContent = "⚠ No streaming channels available.";
-      }
+  // Auto-load first channel
+  channelsListEl.firstChild.click();
+} else {
+  streamStatus.textContent = "⚠ No streaming channels available.";
+}
+
     })
     .catch(err => {
       console.error(err);
       streamStatus.textContent = "⚠ Error loading match.";
     });
 }
+
