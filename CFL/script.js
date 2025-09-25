@@ -36,8 +36,17 @@ fetch(apiURL)
         const matchTime = event.unix_timestamp;
         const diffMinutes = (now - matchTime) / 60;
 
+        // ✅ Apply keyword filter (case-insensitive)
+        const keywordMatch =
+          (event.sport && event.sport.toLowerCase().includes(keyword.toLowerCase())) ||
+          (event.tournament && event.tournament.toLowerCase().includes(keyword.toLowerCase()));
+
+        if (!keywordMatch) return; // skip non-matching sports/tournaments
+
+        // ✅ Apply time cutoff (don’t show matches older than 180 min)
+        if (diffMinutes >= 180) return;
+
         let status = "";
-        if (diffMinutes >= 180) return; // too old → skip
         if (diffMinutes >= 150) status = "finished";
         else if (diffMinutes >= 0 && diffMinutes < 150) {
           status = "live";
@@ -60,7 +69,7 @@ fetch(apiURL)
     // Update live count in button
     document.getElementById("live-count").textContent = liveCount;
 
-    // Render function
+    // ✅ Same render + filter functions as before...
     function renderMatches(filter) {
       matchesBody.innerHTML = "";
       let filtered = allMatches.filter(m => filter === "all" || m.status === filter);
