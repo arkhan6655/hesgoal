@@ -151,7 +151,7 @@ header {
 /* ====== FOOTER ====== */
 footer {
   background: #0b1220;
-  color: #fff;
+  color: #aaa;
   text-align: center;
   padding: 1rem;
   margin-top: 2rem;
@@ -643,6 +643,7 @@ section h2 {
     margin-left: 3px;
   }
 }
+
 
 
 
