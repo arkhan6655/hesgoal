@@ -90,7 +90,7 @@ fetch(apiURL)
             <td>${m.time}</td>
             <td>${m.sport}</td>
             <td>${m.tournament}</td>
-            <td>${badge}${m.match}</td>
+            <td>${m.match} ${badge}</td>
             <td><a class="watch-btn" target="_blank" href="${m.url}">Watch</a></td>
           `;
           matchesBody.appendChild(row);
@@ -130,6 +130,7 @@ fetch(apiURL)
     loadingDiv.innerHTML = `<p style="color:red;">⚠ Error loading matches</p>`;
     console.error(err);
   });
+
 
 
 
