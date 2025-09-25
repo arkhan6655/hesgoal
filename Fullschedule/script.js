@@ -4,7 +4,7 @@ const matchesTable = document.getElementById("matches-table");
 const loadingDiv = document.getElementById("loading");
 
 // Keyword filter
-const keyword = "Fullschedule"; // Change as needed
+const keyword = ""; // Change as needed
 const now = Math.floor(Date.now() / 1000); // Current timestamp in seconds
 const cutoff = 6 * 60 * 60; // 6 hours
 
@@ -130,6 +130,7 @@ fetch(apiURL)
     loadingDiv.innerHTML = `<p style="color:red;">⚠ Error loading matches</p>`;
     console.error(err);
   });
+
 
 
 
