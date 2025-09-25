@@ -601,7 +601,7 @@ section h2 {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  margin-left: 6px;
+  margin-left: 4px;
 }
 
 .badge.finished {
@@ -625,9 +625,10 @@ section h2 {
   .badge {
     width: 5px;
     height: 5px;
-    margin-left: 4px;
+    margin-left: 3px;
   }
 }
+
 
 
 
