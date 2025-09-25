@@ -16,7 +16,7 @@ function formatTime(unix) {
   const date = new Date(unix * 1000);
   return date.toLocaleString(undefined, {
     weekday: "short",
-    year: "numeric",
+   
     month: "short",
     day: "numeric",
     hour: "2-digit",
@@ -130,6 +130,7 @@ fetch(apiURL)
     loadingDiv.innerHTML = `<p style="color:red;">⚠ Error loading matches</p>`;
     console.error(err);
   });
+
 
 
 
