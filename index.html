@@ -101,18 +101,33 @@
 
 
 
-<div id="sticky-footer-ad">
-  <div class="ad-content">
-    
-    <span class="emoji">📲</span>
-    <span class="cta-text">Get the App!</span>
-    <a href="https://tinyurl.com/Buffstreamsapk" class="download-btn" rel="nofollow" target="_blank">⬇ Download</a>
-    
-  </div>
-  <span id="close-ad">&#10060;</span>
-</div>
+<!-- Place ad container empty first -->
+<div id="sticky-footer-ad"></div>
 
+<!-- Load after page is ready -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Inject sticky ad only after page loads
+    const adHTML = `
+      <div class="ad-content">
+        <span class="emoji">📲</span>
+        <span class="cta-text">Get the App!</span>
+        <a href="https://tinyurl.com/Buffstreamsapk" class="download-btn" rel="nofollow" target="_blank">⬇ Download</a>
+      </div>
+      <span id="close-ad">&#10060;</span>
+    `;
+    document.getElementById("sticky-footer-ad").innerHTML = adHTML;
+
+    // Add close functionality
+    document.getElementById("close-ad").addEventListener("click", () => {
+      document.getElementById("sticky-footer-ad").style.display = "none";
+    });
+  });
+</script>
+
+<!-- Non-critical script lazy load -->
 <script src="/mobiledetectscript.js" defer></script>
+
 
 
 
@@ -125,6 +140,7 @@
 
 
 </html>
+
 
 
 
