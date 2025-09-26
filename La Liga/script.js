@@ -61,7 +61,7 @@ fetch(apiURL)
           tournament: event.tournament || "-",
           match: event.match || "-",
           status,
-          url: `https://arkhan648.github.io/buffstreamslive/?id=${event.unix_timestamp}_${idx}`
+          url: `/StreamPage/?id=${event.unix_timestamp}_${idx}`
         });
       });
     }
@@ -130,6 +130,7 @@ fetch(apiURL)
     loadingDiv.innerHTML = `<p style="color:red;">⚠ Error loading matches</p>`;
     console.error(err);
   });
+
 
 
 
