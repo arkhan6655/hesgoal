@@ -61,7 +61,7 @@ fetch(apiURL)
           tournament: event.tournament || "-",
           match: event.match || "-",
           status,
-          url: `https://arkhan648.github.io/buffstreamslive/?id=${event.unix_timestamp}_${idx}`
+          url: `/StreamPage/?id=${event.unix_timestamp}_${idx}`
         });
       });
     }
