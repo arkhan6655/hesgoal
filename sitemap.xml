@@ -26,7 +26,31 @@
   </url>
 
   <url>
-    <loc>https://hesgoal2.world/NFL</loc>
+    <loc>https://hesgoal2.world/Bundesliga</loc>
+    <lastmod>2025-09-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+    <url>
+    <loc>https://hesgoal2.world/Championship</loc>
+    <lastmod>2025-09-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesgoal2.world/La%20Liga</loc>
+    <lastmod>2025-09-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesgoal2.world/Premier</loc>
+    <lastmod>2025-09-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://hesgoal2.world/World</loc>
     <lastmod>2025-09-27</lastmod>
     <priority>0.8</priority>
   </url>
@@ -70,6 +94,7 @@
   </url>
 
 </urlset>
+
 
 
 
